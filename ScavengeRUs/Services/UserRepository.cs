@@ -193,7 +193,12 @@ namespace ScavengeRUs.Services
                 .FirstOrDefaultAsync(u => u.AccessCode!.Code == accessCode);
             return user!;
         }
-
+        /// <summary>
+        /// Reads from a csv and updates active users, connects to Manage.cshtml->line 12
+        /// </summary>
+        /// <param name="filePath">path to the csv test file</param>
+        /// <param name="serverUrl">local host? maybe null?</param>
+        /// <returns>the batch users are updated to the active users list</returns>
         public async Task<List<ApplicationUser>> CreateUsers(string? filePath, string? serverUrl)
         {
             var users = new List<ApplicationUser>();
@@ -232,11 +237,17 @@ namespace ScavengeRUs.Services
                 var accessCode = $"{user.PhoneNumber}/{hunt.HuntName}";
                 var userAccessCode = new AccessCode { Code = accessCode, HuntId = hunt.Id };
                 user.AccessCode = userAccessCode;
-                await _functions.SendEmail(
+                /*
+                 * commenting this out seemed to fix the batch users button. 
+                 * sending an email is potentially the issues, needs further investigation
+                 * 
+                 * 
+                 * await _functions.SendEmail(
                     user.Email, 
                     "Welcome to the ETSU Scavenger Hunt!", 
                     $"Hi {user.FirstName} {user.LastName} welcome to the ETSU Scavenger Hunt game! " +
                     $"To get started please go to {serverUrl} and login with the access code: {user.PhoneNumber}/{hunt.HuntName}");
+                */
             }
             _db.ApplicationUsers.AddRange(users);
             await _db.SaveChangesAsync();
