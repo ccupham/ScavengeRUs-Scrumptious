@@ -221,6 +221,12 @@ namespace ScavengeRUs.Services
                     PhoneNumber = values[2],
                 };
 
+                /*
+                 * The portion below requires the email service to be working ( we think ) 
+                 * Otherwise, the web app will crash when admin tries to "Batch Create Users"
+                 * This method takes the CSV file in "Services -> Users.csv" and adds them to the current users on the web app (failing to ignore duplicate accounts)
+                 */
+
                 // Find the role by its ID
                 var roleName = "Player";
                 var role = await _roleManager.FindByNameAsync(roleName);
@@ -232,12 +238,12 @@ namespace ScavengeRUs.Services
                 var accessCode = $"{user.PhoneNumber}/{hunt.HuntName}";
                 var userAccessCode = new AccessCode { Code = accessCode, HuntId = hunt.Id };
                 user.AccessCode = userAccessCode;
-                await _functions.SendEmail(
+                /*await _functions.SendEmail(
                     user.Email, 
                     "Welcome to the ETSU Scavenger Hunt!", 
                     $"Hi {user.FirstName} {user.LastName} welcome to the ETSU Scavenger Hunt game! " +
                     $"To get started please go to {serverUrl} and login with the access code: {user.PhoneNumber}/{hunt.HuntName}");
-                    
+                    */
             }
             _db.ApplicationUsers.AddRange(users);
             await _db.SaveChangesAsync();
