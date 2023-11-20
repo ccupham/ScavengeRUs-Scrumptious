@@ -1,0 +1,9 @@
+While working on this, we realized that the sorted order has to be persistent somewhere. 
+The code that generates the view for the player has to be able to pull some information (stored by the admin) to determine what order the tasks should be displayed to the player. 
+Currently, persistent information is store in the database. So, the original user story would include: 
+making changes to the database table, adding a field to the HuntRepository to get and set the sort order, 
+updating the HuntRepository interface, adding a method to the hunt controller to update the sorted order 
+as needed and creating the input on the admin ManageTasks view to call the controller method when needed. 
+This also is all assuming the tasks are already in whatever fixed order the admin wants, currently there 
+is no way for the admin to reorder the tasks from a fixed perspective. Because the tasks are all stored in a database, 
+this would likely require adding some "order" value to HuntLocation table so that the same task on different hunts could be in different orders
