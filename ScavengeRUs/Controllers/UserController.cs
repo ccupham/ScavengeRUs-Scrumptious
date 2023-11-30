@@ -10,7 +10,6 @@ using System.IO;
 using Microsoft.VisualBasic.FileIO;
 
 
-
 namespace ScavengeRUs.Controllers
 {
 
@@ -126,6 +125,16 @@ namespace ScavengeRUs.Controllers
         {
             return View();
         }
+
+        /// <summary>
+        /// This is the page to send and edit new emails
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult SendEmail()
+        {
+            return View();
+        }
+
         /// <summary>
         /// This is the method that is executed when hitting submit on creating a user
         /// </summary>

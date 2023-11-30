@@ -19,12 +19,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="HuntName" class="control-label"></label>
-                <input asp-for="HuntName" class="form-control" />
+                <input asp-for="HuntName" class="form-control" minlength="4" maxlength="50" /> <!-- added minlength and maxlength to prevent null/infinite values -->
                 <span asp-validation-for="HuntName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Theme" class="control-label"></label>
-                <input asp-for="Theme" class="form-control" />
+                <input asp-for="Theme" class="form-control" minlength="10" maxlength="300" /> <!-- added minlength and maxlength to prevent null/infinite values -->
                 <span asp-validation-for="Theme" class="text-danger"></span>
             </div>
             <div class="form-group">

@@ -1,0 +1,18 @@
+﻿@if (User.IsInRole("Admin"))
+{
+    <h1>Send Email</h1>
+    <div>
+        <a asp-action="Manage">Back to Admin Portal</a>
+    </div>
+
+    @section Scripts {
+    @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+
+}
+@{
+    ViewData["Title"] = "Create";
+}
+

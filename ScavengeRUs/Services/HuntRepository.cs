@@ -223,8 +223,13 @@ namespace ScavengeRUs.Services
             existingHunt.HuntName = hunt.HuntName;
             existingHunt.Theme = hunt.Theme;
             existingHunt.StartDate = hunt.StartDate;
-            existingHunt.EndDate = hunt.EndDate;
-
+            // This will prevent users from updating the hunt with en end date that is before the start date
+            // However, it will not display an error message of any kind
+            if (existingHunt.StartDate < hunt.EndDate)
+            {
+                existingHunt.EndDate = hunt.EndDate;
+            }
+           
             _db.SaveChanges();
         }
     }

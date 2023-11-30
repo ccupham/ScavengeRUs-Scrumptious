@@ -72,6 +72,8 @@
     <div class="row">
         <div class="col">
             <h1>@hunt.HuntName</h1>
+            <!-- Button to access the map for the current task list -->
+            <a asp-action="ViewMap" asp-route-Id="@hunt.Id" class="btn btn-primary">View Map</a>
         </div>
     </div>
     <p>
@@ -88,6 +90,7 @@
     </p>
     <h4>Introduction Text</h4>
     <p>@hunt.InvitationText</p>
+    <p>@hunt.Theme</p>
     <hr />
     <br />
     <p id="huntHeader">Tasks for @hunt.HuntName</p>
@@ -155,8 +158,6 @@
     </div>
 
 </div>
-
-
 
 @*Sidebar*@
 <button hidden class="btn btn-primary" id="toggleSidebar" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasRight">Toggle right offcanvas</button>

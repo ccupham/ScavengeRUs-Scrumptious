@@ -1,0 +1,16 @@
+﻿<!--
+    View for the interactive map of each task
+    This view should display the map of tasks associated
+    with a given hunt. 
+-->
+
+@model IEnumerable<ScavengeRUs.Models.Entities.Location>
+@using Microsoft.AspNetCore.Identity
+@{
+    var hunt = (Hunt?)ViewData["Hunt"];
+}
+
+<h1>@hunt.HuntName</h1>
+
+<!-- Button to return to the previous page (player view of tasks) -->
+<a asp-action="ViewTasks" asp-route-Id="@hunt.Id" class="btn btn-primary">Return to Tasks</a>
