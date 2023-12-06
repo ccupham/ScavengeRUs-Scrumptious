@@ -1,0 +1,79 @@
+Sprint Learning Objectives 
+
+Problem solving 
+Source control (Demonstrate proper branching, versioning, and merging practices while developing new features exceeds: document the process)
+Agile (Chaning requirements, frequent delivery, communication, measure progress, reflection) 
+Scrum (backlog grooming, sprint planning, daily scrum, sprint review, and sprint retrospective) 
+SDLC (requirments, design, implementation, test, release, maintenance, upgrade/update)
+
+=============================================================================
+
+Sprint 1 goal: The goal of this sprint is to make small changes to current code to verify dev team processes work for future sprints (Source control, code standards, def of done, etc.),  To achieve this goal we will make changes that effect the admins ability to create a new hunt and to have secure access (acceptance criteria on Jira).
+
+Sprint 1 groomed PBIs
+
+As an Admin, I want to have secure access to the site so that I can make changes to all aspects of the hunt 
+
+As an Admin, I want to be able to create a new hunt 
+
+Sprint 1 Tasks completed 
+
+Fix the Batch User Button - Completed 
+Research how to implement a map - Completed  
+
+=============================================================================
+
+Sprint 2 Goal: Gain a better understanding of grooming, sprint planning, and testing by enabling a player to join a new hunt that an admin creates.  We also want to improve communication on what gets done and challenge developers to peer program with someone new
+
+Sprint 2 groomed PBIs 
+
+As a player I want to join a hunt so I can participate 
+
+As an admin I must set the start and end date for a new hunt so I can create a new hunt 
+
+As an admin I can order the list of tassk that appear to players during the hunt so I can make hunts differents
+
+Sprint 2 Tasks completed 
+
+Fix the start dates of new hunts beginning after end dates - Completed 
+Research how to email players - Completed 
+Research how to sort tasks - Completed 
+
+=============================================================================
+
+Sprint 3 Goal: Our goal this sprint is to strengthen our teams knowledge on design and implementation by enabling players to see a map in a hunt and enabling admins to email players a hunt invitation. Developers should work with someone new in order to share knowledge amongst the team
+
+Sprint 3 groomed PBIs 
+
+As a player I want to be able to see a map of campus so I can determine where to go next 
+
+As an Admin I can email players an invitation message and link to join a hunt so players can join a hunt  
+
+As an admin I can set the invitation message players recieve when creating a new hunt so players know how to join a hunt 
+
+Sprint 3 tasks completed 
+
+Setup an email server 
+Test the email server by emailing a user
+Get a list of user emails 
+Research how to use leaflet as a possible map 
+Add a placeholder for a map 
+Add a link for the map 
+
+=====================================================================================
+
+Sprint 4 Goal: Our goal for our last sprint is to improve on implementation, testing, and releasing. To improve on these SDLC topics the team will work enabling players to see a map on BucHUNT. The devs should work with someone new.
+
+Sprint 4 PBIs
+
+As an Admin I can email players an invitation message and link to join a hunt so players can join a hunt
+
+As a player I want to see the location of tasks so I can determine where to go next 
+
+As a player I want to be able to see a map of campus so I can determine where to go next 
+
+Sprint 4 Tasks completed 
+
+Integrate Leaflet into BucHunt 
+Geotracking is enabled into Buchunt 
+Send Email page made on BucHunt 
