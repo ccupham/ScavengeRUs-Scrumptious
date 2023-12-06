@@ -4,6 +4,13 @@
     {
         ATT,
         Verizon,
-        Tmobile
+        TMobile,
+        BoostMobile,
+        Charter,
+        Cricket,
+        Sprint,
+        StraightTalk,
+        TracFone,
+        VirginMobile
     }
 }

@@ -1,11 +1,11 @@
 ﻿<!--
     View for the interactive map of each task
     This view should display the map of tasks associated
-    with a given hunt. 
+    with a given hunt.
 -->
 
 @model IEnumerable<ScavengeRUs.Models.Entities.Location>
-@using Microsoft.AspNetCore.Identity
+
 @{
     var hunt = (Hunt?)ViewData["Hunt"];
 }
@@ -14,3 +14,44 @@
 
 <!-- Button to return to the previous page (player view of tasks) -->
 <a asp-action="ViewTasks" asp-route-Id="@hunt.Id" class="btn btn-primary">Return to Tasks</a>
+
+<!-- Map container -->
+<div id="map" style="height: 750px; margin-top: 20px;"></div>
+
+<!-- Include Leaflet CSS -->
+<link rel="stylesheet" href="~/lib/leaflet/leaflet.css" />
+
+<!-- Include Leaflet JavaScript -->
+<script src="~/lib/leaflet/leaflet.js"></script>
+
+<!-- Leaflet initialization script -->
+<script>
+    // Leaflet has been loaded, now you can use it
+    var map = L.map('map').setView([36.3024, -82.3699], 15); //coordinates for the map (ETSU)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {mazZoom: 19, attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
+    map.setZoom(15.8657283562148)
+
+    // Additional code below using Location model
+
+
+    function onLocationFound(e) {
+        var radius = e.accuracy;
+
+        L.marker(e.latlng).addTo(map)
+            .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+        L.circle(e.latlng, radius).addTo(map);
+    }
+
+    function onLocationError(e) {
+        alert(e.message);
+    }
+
+    map.on('locationfound', onLocationFound);
+    map.on('locationerror', onLocationError);
+
+    // Locate and set view with geolocation
+    map.locate({ setView: true, maxZoom: 16, enableHighAccuracy: true });
+
+
+</script>
